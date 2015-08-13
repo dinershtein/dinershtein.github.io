@@ -2,13 +2,6 @@
 layout: default
 ---
 
-## About
+I'm Senior Software Engineer at [motorlot.com](http://motorlot.com) 
 
-Hi, I'm Leonid Dinershtein.\\
-I develop web applications using Ruby on Rails framework.\\
-I can solve big problems using Ruby\\
-I can remove the pain points from your application growing and scaling
-
-## My service
-
-## My projects
+Expert in building applications using Ruby and Ruby on Rails framework.

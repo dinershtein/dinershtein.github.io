@@ -5,13 +5,13 @@ permalink: /resume/
 ---
 
 # Skills
-Ruby, Ruby on Rails, Javascript, CoffeScript, MySQL, PostgreSQL, MongoDB, TDD, BDD, Rspec, HTML, Haml, Slim, Bootstrap, Foundation, Ionic, Phonegap, Vim, Git
+Ruby, Ruby on Rails, Javascript, CoffeScript, MySQL, PostgreSQL, MongoDB, TDD, BDD, Ansible, Rspec, HTML, Haml, Slim, Bootstrap, Foundation, Ionic, Phonegap, Vim, Git
 
 # Experience
 
 ### 2014 -- 2015 Motorlot, SaaS platform for autodealers
 Role: Lead developer, refactoring monolithic application to microservices.\\
-Technologies: Rails 4, MySQL, ElasticSearch, Liquid, Twilio
+Technologies: Rails 4, MySQL, ElasticSearch, Liquid, Twilio, AWS, RDS
 
 ### 2010 -- 2014 Ruby developer Flatstack outsourcing company
 
@@ -49,6 +49,7 @@ Technologies: Rails 3, new functionality were created via gems for FatFree CRM, 
 # Open source contribution
 * [Solr Sunspot](https://github.com/sunspot/sunspot/commit/dcdcee29f2d866fc28170c7247b7e2a67692aed3)
 * [Apple VPP](https://github.com/tboyko/apple_vpp/commit/a109e6a6de60b137dc51a3ba89619ea1438bb01e)
+* [Fat Free CRM](http://github.com/fatfreecrm/fat_free_crm/blob/master/CONTRIBUTORS#L49)
 
 # Education
 * 2005 – 2010 Russia, Kazan National Research Technical University, engineer
