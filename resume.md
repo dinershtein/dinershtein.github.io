@@ -9,11 +9,11 @@ Ruby, Ruby on Rails, Javascript, CoffeScript, MySQL, PostgreSQL, MongoDB, TDD, B
 
 # Experience
 
-### 2014 -- 2015 Motorlot, SaaS platform for autodealers
+### 2014 -- Present, [Motorlot](http://motorlot.com), SaaS platform for autodealers
 Role: Lead developer, refactoring monolithic application to microservices.\\
 Technologies: Rails 4, MySQL, ElasticSearch, Liquid, Twilio, AWS, RDS
 
-### 2010 -- 2014 Ruby developer Flatstack outsourcing company
+### 2010 -- 2014, Ruby developer at [Flatstack](http://flatstack.com)
 
 #### Projects:
 
