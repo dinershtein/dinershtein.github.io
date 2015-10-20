@@ -2,7 +2,7 @@
 layout: default
 ---
 
-![Leonid Dinershtein]({{ site.url }}/assets/diner.jpg)
+![Leonid Dinershtein](/assets/diner.jpg)
 
 Experienced developer with excellent hands-on skills in building REST APIs, writing SaaS applications, multi-tenant applications, background processing, deployment.
 
