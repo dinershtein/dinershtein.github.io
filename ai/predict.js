@@ -50,6 +50,8 @@ function predict_click(value, source) {
 */
 function doPredict(value) {
 
+	$('#concepts').html('<div class="loader"></div>');
+
   var modelID = getSelectedModel();
 
   app.models.predict(modelID, value).then(
@@ -68,7 +70,7 @@ function doPredict(value) {
         tagArray = response.rawData.outputs[0].data.concepts;
         
         for (var other = 0; other < tagArray.length; other++) {
-          conceptNames += '<li>' + tagArray[other].name + ': <i>' + tagArray[other].value + '</i></li>';
+          conceptNames += '<li>' + tagArray[other].name + ': <i>' + Number(tagArray[other].value).toFixed(5) + '</i></li>';
         }
         
         tagCount=tagArray.length;
