@@ -1,8 +1,8 @@
 var APP_DATA = {
   "scenes": [
     {
-      "id": "0-img_20190215_132558",
-      "name": "IMG_20190215_132558",
+      "id": "0-",
+      "name": "Терраса",
       "levels": [
         {
           "tileSize": 256,
@@ -24,8 +24,8 @@ var APP_DATA = {
       ],
       "faceSize": 1728,
       "initialViewParameters": {
-        "yaw": -0.3616504289623297,
-        "pitch": 0.15481766685259224,
+        "yaw": -0.2929198736866443,
+        "pitch": 0.0005090905914784116,
         "fov": 1.5521195194347879
       },
       "linkHotspots": [
@@ -33,14 +33,14 @@ var APP_DATA = {
           "yaw": -0.6008244348947525,
           "pitch": 0.2944023527949824,
           "rotation": 6.283185307179586,
-          "target": "1-img_20190215_132647"
+          "target": "1--65"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "1-img_20190215_132647",
-      "name": "IMG_20190215_132647",
+      "id": "1--65",
+      "name": "Дубльдом 65",
       "levels": [
         {
           "tileSize": 256,
@@ -62,8 +62,8 @@ var APP_DATA = {
       ],
       "faceSize": 1728,
       "initialViewParameters": {
-        "yaw": -3.019147277549944,
-        "pitch": 0.15595444810231385,
+        "yaw": -2.990587344335495,
+        "pitch": 0.060503247709275954,
         "fov": 1.5521195194347879
       },
       "linkHotspots": [
@@ -71,20 +71,20 @@ var APP_DATA = {
           "yaw": 3.1090318602339613,
           "pitch": 0.34642434053666094,
           "rotation": 0,
-          "target": "2-img_20190215_132815"
+          "target": "2--"
         },
         {
-          "yaw": -0.10130558545873924,
-          "pitch": 0.8654864402207423,
-          "rotation": 0,
-          "target": "0-img_20190215_132558"
+          "yaw": -0.50783471826999,
+          "pitch": 0.3182865509334878,
+          "rotation": 6.283185307179586,
+          "target": "0-"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "2-img_20190215_132815",
-      "name": "IMG_20190215_132815",
+      "id": "2--",
+      "name": "Гостинная (вход)",
       "levels": [
         {
           "tileSize": 256,
@@ -112,23 +112,23 @@ var APP_DATA = {
       },
       "linkHotspots": [
         {
-          "yaw": 2.9794618985714187,
-          "pitch": 0.3228427643867384,
+          "yaw": 3.0417504059063143,
+          "pitch": 0.3979199170208929,
           "rotation": 0,
-          "target": "3-img_20190215_132841"
+          "target": "3--"
         },
         {
           "yaw": -0.0928041428173767,
           "pitch": 0.7315267471181617,
           "rotation": 0,
-          "target": "1-img_20190215_132647"
+          "target": "1--65"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "3-img_20190215_132841",
-      "name": "IMG_20190215_132841",
+      "id": "3--",
+      "name": "Гостинная (стол)",
       "levels": [
         {
           "tileSize": 256,
@@ -150,29 +150,41 @@ var APP_DATA = {
       ],
       "faceSize": 1728,
       "initialViewParameters": {
-        "yaw": 3.0898510388727303,
-        "pitch": 0.1702754919201741,
-        "fov": 1.5521195194347879
+        "yaw": 2.716985244128491,
+        "pitch": 0.19788372778178243,
+        "fov": 1.4844736051742589
       },
       "linkHotspots": [
         {
-          "yaw": 2.838253020815305,
-          "pitch": 0.49989785720299906,
-          "rotation": 5.497787143782138,
-          "target": "4-img_20190215_133047"
+          "yaw": 2.8559082608083646,
+          "pitch": 0.4360593694259691,
+          "rotation": 11.780972450961727,
+          "target": "4-"
         },
         {
           "yaw": 0.0012816153577102085,
           "pitch": 0.6736522755293848,
           "rotation": 0,
-          "target": "2-img_20190215_132815"
+          "target": "2--"
+        },
+        {
+          "yaw": 1.1553981663989887,
+          "pitch": 0.29375478880889716,
+          "rotation": 0,
+          "target": "7-"
+        },
+        {
+          "yaw": 2.9080115250029337,
+          "pitch": 0.07633786004382692,
+          "rotation": 0,
+          "target": "0-"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "4-img_20190215_133047",
-      "name": "IMG_20190215_133047",
+      "id": "4-",
+      "name": "Гостинная",
       "levels": [
         {
           "tileSize": 256,
@@ -203,20 +215,38 @@ var APP_DATA = {
           "yaw": 1.6838649091535265,
           "pitch": 0.36281754834812574,
           "rotation": 0,
-          "target": "5-img_20190215_133110"
+          "target": "5--2"
         },
         {
-          "yaw": 0.050838810881341345,
-          "pitch": 0.31261720503713164,
+          "yaw": -0.13499688933688248,
+          "pitch": 0.23997770516898598,
+          "rotation": 6.283185307179586,
+          "target": "6--1"
+        },
+        {
+          "yaw": 0.05623086117499554,
+          "pitch": 0.2845074770129248,
           "rotation": 0.7853981633974483,
-          "target": "7-img_20190215_133358"
+          "target": "7-"
+        },
+        {
+          "yaw": 3.0802038128532025,
+          "pitch": 0.527980971416282,
+          "rotation": 0,
+          "target": "9--ii"
+        },
+        {
+          "yaw": -0.7296216859394011,
+          "pitch": 0.1970200183641495,
+          "rotation": 0,
+          "target": "2--"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "5-img_20190215_133110",
-      "name": "IMG_20190215_133110",
+      "id": "5--2",
+      "name": "Спальня 2",
       "levels": [
         {
           "tileSize": 256,
@@ -244,17 +274,23 @@ var APP_DATA = {
       },
       "linkHotspots": [
         {
-          "yaw": 2.432444026245645,
-          "pitch": 0.9316695174073271,
+          "yaw": 2.116639392103383,
+          "pitch": 0.9285740883220388,
           "rotation": 3.141592653589793,
-          "target": "4-img_20190215_133047"
+          "target": "4-"
+        },
+        {
+          "yaw": -0.057196373888317,
+          "pitch": 0.7210657913822622,
+          "rotation": 6.283185307179586,
+          "target": "3--"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "6-img_20190215_133623",
-      "name": "IMG_20190215_133623",
+      "id": "6--1",
+      "name": "Спальня 1",
       "levels": [
         {
           "tileSize": 256,
@@ -282,17 +318,23 @@ var APP_DATA = {
       },
       "linkHotspots": [
         {
-          "yaw": 0.6814325464385522,
-          "pitch": 0.8493435728729324,
-          "rotation": 3.141592653589793,
-          "target": "7-img_20190215_133358"
+          "yaw": 0.5820803983406115,
+          "pitch": 0.8329275706583665,
+          "rotation": 21.991148575128566,
+          "target": "7-"
+        },
+        {
+          "yaw": -3.097251881289367,
+          "pitch": 0.501011161370231,
+          "rotation": 0,
+          "target": "4-"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "7-img_20190215_133358",
-      "name": "IMG_20190215_133358",
+      "id": "7-",
+      "name": "Прачечная",
       "levels": [
         {
           "tileSize": 256,
@@ -314,67 +356,29 @@ var APP_DATA = {
       ],
       "faceSize": 1728,
       "initialViewParameters": {
-        "pitch": 0,
-        "yaw": 0,
-        "fov": 1.5707963267948966
+        "yaw": -0.0012740853253685458,
+        "pitch": 0.18263909877681428,
+        "fov": 1.4844736051742589
       },
       "linkHotspots": [
         {
-          "yaw": 0.007179706614721226,
-          "pitch": 0.7339681100834561,
-          "rotation": 0,
-          "target": "8-img_20190215_133414"
+          "yaw": 0.010196318167935203,
+          "pitch": 0.7358549727811496,
+          "rotation": 13.351768777756625,
+          "target": "8-"
+        },
+        {
+          "yaw": 2.839311002345312,
+          "pitch": 0.7437780250058772,
+          "rotation": 5.497787143782138,
+          "target": "3--"
         }
       ],
       "infoHotspots": []
     },
     {
-      "id": "8-img_20190215_133414",
-      "name": "IMG_20190215_133414",
-      "levels": [
-        {
-          "tileSize": 256,
-          "size": 256,
-          "fallbackOnly": true
-        },
-        {
-          "tileSize": 512,
-          "size": 512
-        },
-        {
-          "tileSize": 512,
-          "size": 1024
-        },
-        {
-          "tileSize": 512,
-          "size": 2048
-        }
-      ],
-      "faceSize": 1728,
-      "initialViewParameters": {
-        "yaw": 0.9001187883850754,
-        "pitch": 0.3060702982531023,
-        "fov": 1.5521195194347879
-      },
-      "linkHotspots": [
-        {
-          "yaw": 1.4703206733281267,
-          "pitch": 0.887041122424213,
-          "rotation": 0,
-          "target": "9-img_20190215_133436"
-        },
-        {
-          "yaw": 3.1036037185577294,
-          "pitch": 0.6619675280412398,
-          "rotation": 0,
-          "target": "7-img_20190215_133358"
-        }
-      ],
-      "infoHotspots": []
-    },
-    {
-      "id": "9-img_20190215_133436",
-      "name": "IMG_20190215_133436",
+      "id": "8-",
+      "name": "Ванная",
       "levels": [
         {
           "tileSize": 256,
@@ -402,20 +406,64 @@ var APP_DATA = {
       },
       "linkHotspots": [
         {
-          "yaw": 0.3570778006007149,
-          "pitch": 0.777755171637244,
+          "yaw": 0.26871696309282633,
+          "pitch": 0.8078774968292493,
           "rotation": 3.141592653589793,
-          "target": "8-img_20190215_133414"
+          "target": "7-"
+        },
+        {
+          "yaw": 3.0262828606157637,
+          "pitch": 0.7692798231977314,
+          "rotation": 0,
+          "target": "7-"
+        }
+      ],
+      "infoHotspots": []
+    },
+    {
+      "id": "9--ii",
+      "name": "Терраса II",
+      "levels": [
+        {
+          "tileSize": 256,
+          "size": 256,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
+        }
+      ],
+      "faceSize": 1728,
+      "initialViewParameters": {
+        "pitch": 0,
+        "yaw": 0,
+        "fov": 1.5707963267948966
+      },
+      "linkHotspots": [
+        {
+          "yaw": -3.058051435858573,
+          "pitch": 0.20320162682122245,
+          "rotation": 0,
+          "target": "4-"
         }
       ],
       "infoHotspots": []
     }
   ],
-  "name": "Project Title",
+  "name": "dubldom",
   "settings": {
     "mouseViewMode": "drag",
     "autorotateEnabled": true,
-    "fullscreenButton": false,
-    "viewControlButtons": false
+    "fullscreenButton": true,
+    "viewControlButtons": true
   }
 };
