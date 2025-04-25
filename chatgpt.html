@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Chatgpt Search Redirect</title>
+		<script>
+			// Get the search query from URL parameters
+			const urlParams = new URLSearchParams(window.location.search);
+			const searchTerms = urlParams.get('q') || '';
+
+			// Redirect to Chatgpt
+			window.location.href = `https://www.chatgpt.com/?q=${encodeURIComponent(searchTerms)}&hints=search&ref=ext`;
+		</script>
+	</head>
+	<body>
+		<p>Redirecting to ChatGPT...</p>
+	</body>
+</html>
