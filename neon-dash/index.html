@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Neon Dash</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: #0a0015;
+    }
+    #game {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+      overflow: hidden;
+    }
+    .grid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .ground {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+    }
+    .ground-pattern {
+      position: absolute;
+      inset: 0;
+    }
+    .player {
+      position: absolute;
+      left: 85px;
+      width: 36px;
+      height: 36px;
+      border-radius: 4px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .player-inner {
+      position: absolute;
+      inset: 6px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 2px;
+    }
+    .obstacle {
+      position: absolute;
+      pointer-events: none;
+    }
+    .spike {
+      width: 0;
+      height: 0;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+    }
+    .hud {
+      position: absolute;
+      pointer-events: none;
+      font-weight: 700;
+    }
+    .menu {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.6);
+    }
+    .menu h1 {
+      font-size: 56px;
+      font-weight: 900;
+      color: #00ffff;
+      text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+      margin-bottom: 30px;
+    }
+    .menu .highscore {
+      font-size: 24px;
+      color: #ffaa00;
+      text-shadow: 0 0 15px #ffaa00;
+      margin-bottom: 20px;
+    }
+    .menu .start {
+      font-size: 22px;
+      color: #ff00aa;
+      text-shadow: 0 0 15px #ff00aa;
+      animation: blink 1s infinite;
+    }
+    .menu .hint {
+      font-size: 14px;
+      color: #666;
+      margin-top: 20px;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .sawblade {
+      border-radius: 50%;
+      border: 3px solid #ff4444;
+      box-shadow: 0 0 20px #ff0000;
+    }
+    .sawblade-inner {
+      position: absolute;
+      inset: 15px;
+      border-radius: 50%;
+      background: #220000;
+      border: 2px solid #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <div id="game"></div>
+  
+  <script>
+    const GRAVITY = 1.0;
+    const JUMP_FORCE = 16;
+    const GROUND_HEIGHT = 80;
+    const PLAYER_SIZE = 36;
+
+    const LEVELS = [
+      { name: "НАЧАЛО", speed: 5, color: '#00ffff', groundColor: '#00ffc8', bg: 'linear-gradient(180deg, #0a0015 0%, #1a0030 50%, #0f0020 100%)', obstacles: ['spike', 'block'] },
+      { name: "РАЗГОН", speed: 6, color: '#ff00aa', groundColor: '#ff00aa', bg: 'linear-gradient(180deg, #150005 0%, #300015 50%, #200010 100%)', obstacles: ['spike', 'block', 'doubleSpike'] },
+      { name: "ХАОС", speed: 7, color: '#ffaa00', groundColor: '#ffaa00', bg: 'linear-gradient(180deg, #151000 0%, #302500 50%, #201800 100%)', obstacles: ['spike', 'doubleSpike', 'tripleSpike', 'tallBlock'] },
+      { name: "КОШМАР", speed: 8, color: '#7700ff', groundColor: '#7700ff', bg: 'linear-gradient(180deg, #05000a 0%, #100020 50%, #080015 100%)', obstacles: ['spike', 'doubleSpike', 'tripleSpike', 'sawblade'] },
+      { name: "ФИНАЛ", speed: 9, color: '#ff0000', groundColor: '#ff0000', bg: 'linear-gradient(180deg, #0a0000 0%, #200000 50%, #150000 100%)', obstacles: ['doubleSpike', 'tripleSpike', 'sawblade', 'laserGate'] },
+    ];
+
+    const state = {
+      status: 'menu',
+      playerY: 0,
+      velocity: 0,
+      rotation: 0,
+      score: 0,
+      highScore: 0,
+      level: 0,
+      obstacles: [],
+      bgOffset: 0,
+      sawAngle: 0,
+      frameCount: 0
+    };
+
+    const game = document.getElementById('game');
+
+    function getLevel(s) {
+      if (s < 50) return 0;
+      if (s < 120) return 1;
+      if (s < 200) return 2;
+      if (s < 300) return 3;
+      return 4;
+    }
+
+    function resetGame() {
+      if (state.score > state.highScore) {
+        state.highScore = state.score;
+      }
+      state.status = 'menu';
+      state.playerY = 0;
+      state.velocity = 0;
+      state.rotation = 0;
+      state.score = 0;
+      state.level = 0;
+      state.obstacles = [];
+      state.frameCount = 0;
+    }
+
+    function startGame() {
+      state.status = 'playing';
+      state.playerY = 0;
+      state.velocity = 0;
+      state.rotation = 0;
+      state.score = 0;
+      state.level = 0;
+      state.obstacles = [{ id: Date.now(), x: 500, type: 'spike' }];
+      state.frameCount = 0;
+    }
+
+    function jump() {
+      if (state.status === 'playing' && state.playerY < 1) {
+        state.velocity = JUMP_FORCE;
+      }
+    }
+
+    function handleInput(e) {
+      if (e.type === 'keydown' && !['Space', 'ArrowUp', 'KeyW'].includes(e.code)) return;
+      e.preventDefault();
+      
+      if (state.status === 'menu') {
+        startGame();
+      } else if (state.status === 'playing') {
+        jump();
+      }
+    }
+
+    window.addEventListener('keydown', handleInput);
+    window.addEventListener('mousedown', handleInput);
+    window.addEventListener('touchstart', handleInput);
+
+    function renderObstacle(o, lvl) {
+      const base = `position:absolute;left:${o.x}px;bottom:${GROUND_HEIGHT}px;`;
+      
+      if (o.type === 'spike') {
+        return `<div style="${base}width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:40px solid ${lvl.groundColor};filter:drop-shadow(0 0 10px ${lvl.groundColor})"></div>`;
+      }
+      if (o.type === 'doubleSpike') {
+        return `<div style="${base}">
+          <div style="position:absolute;left:0;width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:40px solid ${lvl.groundColor};filter:drop-shadow(0 0 10px ${lvl.groundColor})"></div>
+          <div style="position:absolute;left:40px;width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:40px solid ${lvl.groundColor};filter:drop-shadow(0 0 10px ${lvl.groundColor})"></div>
+        </div>`;
+      }
+      if (o.type === 'tripleSpike') {
+        return `<div style="${base}">
+          <div style="position:absolute;left:0;width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:40px solid ${lvl.groundColor};filter:drop-shadow(0 0 10px ${lvl.groundColor})"></div>
+          <div style="position:absolute;left:40px;width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:40px solid ${lvl.groundColor};filter:drop-shadow(0 0 10px ${lvl.groundColor})"></div>
+          <div style="position:absolute;left:80px;width:0;height:0;border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:40px solid ${lvl.groundColor};filter:drop-shadow(0 0 10px ${lvl.groundColor})"></div>
+        </div>`;
+      }
+      if (o.type === 'block') {
+        return `<div style="${base}width:40px;height:40px;background:linear-gradient(135deg,${lvl.color},${lvl.groundColor});border:3px solid ${lvl.color};box-shadow:0 0 15px ${lvl.color}"></div>`;
+      }
+      if (o.type === 'tallBlock') {
+        return `<div style="${base}width:40px;height:80px;background:linear-gradient(135deg,#ff6600,#ff0066);border:3px solid #ffaa00;box-shadow:0 0 20px #ff6600"></div>`;
+      }
+      if (o.type === 'sawblade') {
+        return `<div style="${base}width:50px;height:50px;border-radius:50%;background:conic-gradient(from ${state.sawAngle}deg,#ff0000,#880000,#ff0000,#880000,#ff0000,#880000,#ff0000,#880000);border:3px solid #ff4444;box-shadow:0 0 20px #ff0000;transform:rotate(${state.sawAngle}deg)">
+          <div style="position:absolute;inset:15px;border-radius:50%;background:#220000;border:2px solid #ff0000"></div>
+        </div>`;
+      }
+      if (o.type === 'laserGate') {
+        return `<div style="${base}">
+          <div style="width:40px;height:15px;background:#333;border-radius:3px 3px 0 0"></div>
+          <div style="position:absolute;left:18px;bottom:15px;width:4px;height:120px;background:linear-gradient(0deg,#ff0000,#ff6666,#ff0000);box-shadow:0 0 20px #ff0000"></div>
+          <div style="position:absolute;bottom:135px;width:40px;height:15px;background:#333;border-radius:0 0 3px 3px"></div>
+        </div>`;
+      }
+      return '';
+    }
+
+    function render() {
+      const lvl = LEVELS[state.level];
+      
+      let html = `
+        <div class="grid" style="background-image:linear-gradient(${lvl.groundColor}15 1px,transparent 1px),linear-gradient(90deg,${lvl.groundColor}15 1px,transparent 1px);background-size:50px 50px;background-position:${-state.bgOffset}px 0"></div>
+        <div class="ground" style="background:linear-gradient(180deg,${lvl.groundColor},${lvl.groundColor}44);box-shadow:0 -5px 30px ${lvl.groundColor}80">
+          <div class="ground-pattern" style="background-image:repeating-linear-gradient(90deg,transparent,transparent 48px,rgba(0,0,0,0.15) 48px,rgba(0,0,0,0.15) 50px);background-position:${-state.bgOffset * 3}px 0"></div>
+        </div>
+        <div class="player" style="bottom:${GROUND_HEIGHT + state.playerY}px;background:linear-gradient(135deg,${lvl.color},#fff,${lvl.color});border:3px solid ${lvl.color};transform:rotate(${state.rotation}deg);box-shadow:0 0 25px ${lvl.color},0 0 50px ${lvl.color}60">
+          <div class="player-inner"></div>
+        </div>
+      `;
+
+      for (const o of state.obstacles) {
+        html += renderObstacle(o, lvl);
+      }
+
+      if (state.status === 'playing') {
+        html += `
+          <div class="hud" style="top:30px;left:30px;color:${lvl.groundColor};font-size:36px;text-shadow:0 0 20px ${lvl.groundColor}">${state.score}</div>
+          <div class="hud" style="top:30px;right:30px;color:#ff00aa;font-size:18px;text-shadow:0 0 15px #ff00aa">РЕКОРД: ${state.highScore}</div>
+          <div class="hud" style="top:70px;left:30px;color:${lvl.color};font-size:14px;text-shadow:0 0 10px ${lvl.color}">УРОВЕНЬ ${state.level + 1}: ${lvl.name}</div>
+        `;
+      }
+
+      if (state.status === 'menu') {
+        html += `
+          <div class="menu">
+            <h1>NEON DASH</h1>
+            ${state.highScore > 0 ? `<p class="highscore">🏆 РЕКОРД: ${state.highScore}</p>` : ''}
+            <p class="start">НАЖМИ ЧТОБЫ НАЧАТЬ</p>
+            <p class="hint">SPACE / CLICK / TAP</p>
+          </div>
+        `;
+      }
+
+      game.innerHTML = html;
+      game.style.background = lvl.bg;
+    }
+
+    function gameLoop() {
+      if (state.status === 'playing') {
+        state.frameCount++;
+        const lvl = LEVELS[state.level];
+        const speed = lvl.speed;
+
+        // Physics
+        state.velocity -= GRAVITY;
+        state.playerY += state.velocity;
+
+        if (state.playerY < 0) {
+          state.playerY = 0;
+          state.velocity = 0;
+        }
+        if (state.playerY > 280) {
+          state.playerY = 280;
+          state.velocity = 0;
+        }
+
+        // Rotation
+        if (state.playerY > 1) {
+          state.rotation += 8;
+        }
+
+        // Move obstacles
+        state.obstacles = state.obstacles
+          .map(o => ({ ...o, x: o.x - speed }))
+          .filter(o => o.x > -150);
+
+        // Spawn
+        const last = state.obstacles[state.obstacles.length - 1];
+        if (!last || last.x < 450) {
+          const gap = 200 + Math.random() * 150;
+          const x = last ? last.x + gap : 550;
+          const types = lvl.obstacles;
+          state.obstacles.push({
+            id: Date.now() + Math.random(),
+            x,
+            type: types[Math.floor(Math.random() * types.length)]
+          });
+        }
+
+        // Collision
+        const px1 = 89, px2 = 117;
+        const py1 = state.playerY + 4;
+        const py2 = state.playerY + PLAYER_SIZE - 4;
+
+        for (const o of state.obstacles) {
+          let hit = false;
+          
+          if (o.type === 'spike') {
+            hit = px2 > o.x + 5 && px1 < o.x + 35 && py1 < 38;
+          } else if (o.type === 'doubleSpike') {
+            hit = px2 > o.x + 5 && px1 < o.x + 75 && py1 < 38;
+          } else if (o.type === 'tripleSpike') {
+            hit = px2 > o.x + 5 && px1 < o.x + 115 && py1 < 38;
+          } else if (o.type === 'block') {
+            hit = px2 > o.x && px1 < o.x + 40 && py1 < 40;
+          } else if (o.type === 'tallBlock') {
+            hit = px2 > o.x && px1 < o.x + 40 && py1 < 80;
+          } else if (o.type === 'sawblade') {
+            const dist = Math.hypot(103 - (o.x + 25), (py1 + py2) / 2 - 25);
+            hit = dist < 38;
+          } else if (o.type === 'laserGate') {
+            hit = px2 > o.x + 16 && px1 < o.x + 24 && py1 < 120;
+          }
+
+          if (hit) {
+            resetGame();
+            break;
+          }
+        }
+
+        // Score
+        if (state.frameCount % 5 === 0) {
+          state.score++;
+          state.level = getLevel(state.score);
+        }
+
+        state.bgOffset = (state.bgOffset + speed * 0.3) % 100;
+        state.sawAngle += 10;
+      }
+
+      render();
+      requestAnimationFrame(gameLoop);
+    }
+
+    render();
+    requestAnimationFrame(gameLoop);
+  </script>
+</body>
+</html>
