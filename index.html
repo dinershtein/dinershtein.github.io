@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leonid Dinershtein</title>
+    <meta name="description" content="Entrepreneur. Ex-founder of Mayak (Top-25 Russian SaaS). Now building AI-powered products.">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --text: #111;
+            --dim: #555;
+            --faint: #999;
+            --rule: #e5e5e5;
+            --link: #0055cc;
+            --bg: #fff;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(0, 85, 204, 0.3);
+            text-underline-offset: 2px;
+            transition: text-decoration-color 0.2s;
+        }
+        a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        /* ── Header ── */
+        header {
+            padding: 3.5rem 0 2rem;
+        }
+        .header-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .header-info {
+            min-width: 0;
+        }
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
+        }
+        .tagline {
+            color: var(--dim);
+            font-size: 0.92rem;
+            margin-bottom: 0.75rem;
+        }
+        .header-links {
+            display: flex;
+            gap: 1.1rem;
+        }
+        .header-links a {
+            color: var(--dim);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.82rem;
+            transition: color 0.2s;
+        }
+        .header-links a:hover { color: var(--link); }
+        .header-links svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        /* ── Bio ── */
+        .bio {
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--rule);
+        }
+        .bio p {
+            color: var(--dim);
+            margin-bottom: 1rem;
+        }
+        .bio p:last-child { margin-bottom: 0; }
+
+
+        /* ── Sections ── */
+        .section {
+            padding: 2.5rem 0;
+            border-bottom: 1px solid var(--rule);
+        }
+        .section:last-of-type { border-bottom: none; }
+        .section-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--faint);
+            margin-bottom: 1.25rem;
+        }
+
+        /* ── Projects ── */
+        .project {
+            margin-bottom: 1.25rem;
+        }
+        .project:last-child { margin-bottom: 0; }
+        .project-head {
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            margin-bottom: 0.15rem;
+        }
+        .project-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .project-name a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        .project-name a:hover { text-decoration: underline; }
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 0.15rem 0.45rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .tag-exited { background: #e8f5e9; color: #2e7d32; }
+        .tag-active { background: #fff3e0; color: #e65100; }
+        .tag-soon { background: #f5f5f5; color: #999; }
+        .project-desc {
+            color: var(--dim);
+            font-size: 0.9rem;
+        }
+
+        /* ── Blog ── */
+        .post {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid var(--rule);
+            text-decoration: none;
+            transition: padding-left 0.2s;
+        }
+        .post:first-child { border-top: 1px solid var(--rule); }
+        .post:hover { padding-left: 0.35rem; }
+        .post-title {
+            font-weight: 500;
+            font-size: 0.92rem;
+            color: var(--text);
+            transition: color 0.2s;
+        }
+        .post:hover .post-title { color: var(--link); }
+        .post-date {
+            font-size: 0.78rem;
+            color: var(--faint);
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ── Contact ── */
+        .links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 2rem 0 3rem;
+            font-size: 0.78rem;
+            color: var(--faint);
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 480px) {
+            header { padding-top: 2.5rem; }
+            .header-row { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .avatar { width: 80px; height: 80px; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <header>
+        <div class="header-row">
+            <img class="avatar" src="/images/photo.jpg" alt="Leonid Dinershtein">
+            <div class="header-info">
+                <h1>Leonid Dinershtein</h1>
+                <p class="tagline">Entrepreneur. Ex-cofounder of Mayak. Now building with AI.</p>
+                <div class="header-links">
+                    <a href="https://t.me/dinershtein1" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg> Telegram</a>
+                    <a href="https://www.linkedin.com/in/dinershtein/" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg> LinkedIn</a>
+                    <a href="mailto:leonid@dinershtein.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Email</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="bio">
+        <p>I'm an entrepreneur and builder who spent most of his life turning ideas into products people use. Writing code, shipping features, leading teams, and figuring out what people actually need.</p>
+        <p>I've been building software for almost 20 years. For the next decade I worked across the full stack — building backends, APIs, and everything in between. My go-to stack was Ruby on Rails — I loved Ruby for its elegance and expressiveness. Over time I grew into a tech lead role, managing engineering teams, setting up development processes, making architectural decisions, and mentoring developers. Those ten years of hands-on engineering and leadership taught me to think in systems, ship fast, fail fast, and learn faster.</p>
+        <p>In 2020 I took the leap and cofounded <a href="https://mayak.bz/" target="_blank">Mayak</a> — a marketplace analytics platform for Wildberries and Ozon sellers. What launched as a small startup quickly grew into a technically challenging, high-load platform — terabytes of data, ClickHouse under the hood, and real-time analytics at scale. Mayak reached 400,000 users and became a <a href="https://saas-rating.ru/" target="_blank">Top-25 SaaS in Russia</a>. I sold the company in 2024.</p>
+        <p>After the exit, I took a two-year break — traveled, reflected, and recharged. That time off gave me clarity on what I want to build next and how I want to build it.</p>
+        <p>Now I'm back and building again. The landscape has changed dramatically, and I believe the best time to build with AI is right now.</p>
+        <p>You can find me on <a href="https://t.me/dinershtein1" target="_blank">Telegram</a> and <a href="https://www.linkedin.com/in/dinershtein/" target="_blank">LinkedIn</a>, or read some of my writing below.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Projects</div>
+        <div class="project">
+            <div class="project-head">
+                <span class="project-name"><a href="https://mayak.bz/" target="_blank">Mayak</a></span>
+                <span class="tag tag-exited">Exited</span>
+            </div>
+            <div class="project-desc">Marketplace analytics SaaS. Cofounded 2020, sold 2024. Top-25 Russian SaaS.</div>
+        </div>
+        <div class="project">
+            <div class="project-head">
+                <span class="project-name"><a href="https://farol.team" target="_blank">Farol</a></span>
+                <span class="tag tag-active">Active</span>
+            </div>
+            <div class="project-desc">AI product lab. Building AI-powered products from idea to launch.</div>
+        </div>
+        <div class="project">
+            <div class="project-head">
+                <span class="project-name">???</span>
+                <span class="tag tag-soon">Coming soon</span>
+            </div>
+            <div class="project-desc">New things are cooking.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Writing</div>
+        <p style="color: var(--faint); font-size: 0.9rem; font-style: italic;">Coming soon. I have a lot to share — stay tuned.</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Connect</div>
+        <div class="links">
+            <a href="https://t.me/dinershtein1" target="_blank">Telegram</a>
+            <a href="https://www.linkedin.com/in/dinershtein/" target="_blank">LinkedIn</a>
+            <a href="mailto:leonid@dinershtein.com">Email</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Leonid Dinershtein
+    </footer>
+
+</div>
+
+</body>
+</html>
