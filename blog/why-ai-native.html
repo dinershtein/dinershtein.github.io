@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why AI-Native — Leonid Dinershtein</title>
+    <meta name="description" content="Traditional companies can't absorb AI. You don't electrify a horse — you build a car.">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --text: #111;
+            --dim: #555;
+            --faint: #999;
+            --rule: #e5e5e5;
+            --link: #0055cc;
+            --bg: #fff;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .page {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: underline;
+            text-decoration-color: rgba(0, 85, 204, 0.3);
+            text-underline-offset: 2px;
+            transition: text-decoration-color 0.2s;
+        }
+        a:hover {
+            text-decoration-color: var(--link);
+        }
+
+        /* -- Header -- */
+        .back {
+            display: inline-block;
+            padding: 3.5rem 0 2rem;
+            font-size: 0.85rem;
+            color: var(--dim);
+            text-decoration: none;
+        }
+        .back:hover { color: var(--link); }
+
+        /* -- Article -- */
+        article {
+            padding-bottom: 3rem;
+        }
+        .article-header {
+            margin-bottom: 2rem;
+        }
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+        .article-date {
+            font-size: 0.82rem;
+            color: var(--faint);
+            font-variant-numeric: tabular-nums;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        article p {
+            color: var(--dim);
+            margin-bottom: 1rem;
+        }
+        article p:last-child { margin-bottom: 0; }
+
+        .footnotes {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--rule);
+            font-size: 0.8rem;
+            color: var(--faint);
+        }
+        .footnotes p { color: var(--faint); }
+
+        /* -- Footer -- */
+        footer {
+            padding: 2rem 0 3rem;
+            border-top: 1px solid var(--rule);
+            font-size: 0.78rem;
+            color: var(--faint);
+        }
+
+        /* -- Mobile -- */
+        @media (max-width: 480px) {
+            .back { padding-top: 2.5rem; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <a class="back" href="/">&larr; Back</a>
+
+    <article>
+        <div class="article-header">
+            <h1>Why AI-Native</h1>
+            <div class="article-date">March 6, 2026</div>
+        </div>
+
+        <h2>The problem</h2>
+        <p>Traditional companies can't absorb AI<a href="#fn1">*</a>. They inject it into old structures and get resistance, denial, and committee meetings. This is the wrong path. You don't electrify a horse — you build a car.</p>
+
+        <h2>The answer</h2>
+        <p>Build new companies around AI from day one. Not AI-assisted. Not AI-enhanced. AI-native. One or several human founders + one AI cofounder. Full autonomy. Real execution.</p>
+        <p>The question is no longer "how do I compete?" — it's "what becomes possible when building a company costs almost nothing?"</p>
+        <p>If you're inside a traditional company, there is one move: spin up an independent AI-native entity next to it. Give it freedom. The subsidiary might outgrow the parent.</p>
+
+        <h2>Why now</h2>
+        <p>The direction has been clear for years. But the models weren't ready. In late 2025, Claude Opus 4.5 and GPT-5.2 crossed the threshold — good enough for real work<a href="#fn2">**</a>. In January 2026, OpenClaw went viral and showed what agentic workflows actually look like.</p>
+        <p>The baseline for an AI-native company today is an agentic workflow running 24/7.</p>
+        <div class="footnotes" id="fn1">
+            <p>* <a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/" target="_blank">MIT</a>: 95% of generative AI pilots at traditional companies fail to deliver measurable impact. <a href="https://www.bcg.com/publications/2025/are-you-generating-value-from-ai-the-widening-gap" target="_blank">BCG</a>: only 5% of companies create substantial value from AI at scale. <a href="https://www.rand.org/content/dam/rand/pubs/research_reports/RRA2600/RRA2680-1/RAND_RRA2680-1.pdf" target="_blank">RAND</a>: 80% of AI projects fail — twice the rate of non-AI IT projects.</p>
+            <p id="fn2">** Claude Opus 4.5 solves <a href="https://www.anthropic.com/news/claude-opus-4-5" target="_blank">80.9% of real-world GitHub issues</a> on SWE-bench — the first model to cross 80%. Anthropic's <a href="https://www.anthropic.com/research/how-ai-is-transforming-work-at-anthropic" target="_blank">internal study</a> shows engineers reporting ~50% productivity gains, with 14% exceeding 100%.</p>
+        </div>
+    </article>
+
+    <footer>
+        &copy; 2026 Leonid Dinershtein
+    </footer>
+
+</div>
+
+</body>
+</html>
