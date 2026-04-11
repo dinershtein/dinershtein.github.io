@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Сдай ГИМС с первого раза. Приложение построит план подготовки под твою дату экзамена — покажет что учить сегодня и предупредит о слабых темах. Без рекламы и подписок.">
+<title>ГИМС 2026 — сдай экзамен с первого раза · личный план подготовки</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="#">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M16 4 L18 14 L28 16 L18 18 L16 28 L14 18 L4 16 L14 14 Z" fill="currentColor"/>
+      </svg>
+      <span>ГИМС 2026</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#how">Как это работает</a>
+      <a href="#features">Фичи</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wave-decor" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,64 C240,100 480,20 720,48 C960,76 1200,100 1440,56 L1440,120 L0,120 Z" fill="#121E36" opacity="0.6"/>
+      <path d="M0,80 C240,40 480,100 720,72 C960,44 1200,20 1440,72 L1440,120 L0,120 Z" fill="#0F1A30"/>
+    </svg>
+  </div>
+
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <div class="eyebrow">Экзамен ГИМС МЧС 2026 · iOS</div>
+      <h1>Сдашь ГИМС<br>с первого раза.<br><span class="hero__accent">К открытию сезона.</span></h1>
+      <p class="lead">
+        Купил лодку, а до сезона 6 недель? Приложение построит план подготовки
+        под твою дату экзамена, покажет что учить сегодня и предупредит о
+        слабых темах. Без рекламы, без подписок.
+      </p>
+      <div class="hero__cta">
+        <a href="#" class="btn btn--primary">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path fill="currentColor" d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+          </svg>
+          Скачать в App Store
+        </a>
+        <a href="quiz.html" class="btn btn--ghost">Попробовать тест</a>
+      </div>
+      <div class="hero__badges">
+        <span>Офлайн</span>
+        <span>Без рекламы</span>
+        <span>iOS 16+</span>
+      </div>
+    </div>
+
+    <div class="hero__mockup" aria-hidden="true">
+      <div class="phone">
+        <div class="phone__notch"></div>
+        <div class="phone__screen">
+          <div class="screen__topbar">
+            <span class="screen__time">9:41</span>
+            <span class="screen__title">Обучение</span>
+            <span class="screen__timer">42 дня</span>
+          </div>
+          <div class="screen__progress"><span style="width:62%"></span></div>
+          <div class="screen__question">
+            <div class="screen__qmeta">Ты успеваешь · прогноз: 28 апреля</div>
+            <div class="screen__qtext">На сегодня: 25 новых + 12 повторение</div>
+            <div class="screen__signs">
+              <div class="sign sign--circle"><div class="sign__bar"></div></div>
+              <div class="sign sign--diamond"></div>
+              <div class="sign sign--square"></div>
+            </div>
+          </div>
+          <div class="screen__answers">
+            <div class="ans ans--correct">Заниматься сегодня · ≈15 мин</div>
+            <div class="ans">День 4 из 42</div>
+            <div class="ans">Готовность 62%</div>
+          </div>
+        </div>
+      </div>
+      <div class="compass" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="56" fill="none" stroke="#2196F3" stroke-width="1" opacity="0.5"/>
+          <circle cx="60" cy="60" r="44" fill="none" stroke="#2196F3" stroke-width="1" opacity="0.3"/>
+          <path d="M60 14 L66 60 L60 106 L54 60 Z" fill="#2196F3" opacity="0.9"/>
+          <path d="M14 60 L60 54 L106 60 L60 66 Z" fill="#ffffff" opacity="0.25"/>
+          <circle cx="60" cy="60" r="3" fill="#ffffff"/>
+          <text x="60" y="10" text-anchor="middle" fill="#2196F3" font-size="9" font-family="sans-serif">N</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="section">
+  <div class="container">
+    <div class="section__head">
+      <div class="eyebrow">Как это работает</div>
+      <h2>Не зубрёжка — план под твою дату</h2>
+      <p class="section__lead">3 минуты на настройку, дальше приложение само говорит что делать каждый день.</p>
+    </div>
+    <div class="grid grid--3 steps">
+      <div class="step">
+        <div class="step__num">01</div>
+        <h3>Укажи дату экзамена</h3>
+        <p>Или выбери срок: 1, 2 или 4 недели. Если точной даты нет — учись в свободном темпе и поставь дату позже.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">02</div>
+        <h3>Отметь свою категорию</h3>
+        <p>Какое судно и где будешь водить. Моторка на реке или яхта на море — приложение покажет только нужные вопросы.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">03</div>
+        <h3>Занимайся по 15 минут</h3>
+        <p>Главный экран показывает план на сегодня и прогноз готовности. Сдашь с первого раза — даже если до экзамена 2 недели.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="section section--alt">
+  <div class="container">
+    <div class="section__head">
+      <div class="eyebrow">Что делает приложение</div>
+      <h2>Всё, чтобы ты сдал. Ничего лишнего.</h2>
+    </div>
+    <div class="grid grid--4">
+      <div class="card feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg>
+        </div>
+        <h3>Личный план</h3>
+        <p>Приложение считает сколько вопросов в день нужно, чтобы успеть к твоей дате. Пропустил день — план пересчитается.</p>
+      </div>
+      <div class="card feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0zM12 7v6l4 2"/></svg>
+        </div>
+        <h3>Прогноз готовности</h3>
+        <p>«Сдашь 28 апреля» или «Не успеваешь на 3 дня — нужно 38 вопросов в день». Честная обратная связь по твоему темпу.</p>
+      </div>
+      <div class="card feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 2l2 7h7l-5.5 4.5L18 22l-6-4.5L6 22l2.5-8.5L3 9h7z"/></svg>
+        </div>
+        <h3>Симулятор экзамена</h3>
+        <p>Билет по Приказу МЧС №885: 25/30/35 вопросов с допустимыми ошибками — точно как в кабинете ГИМС.</p>
+      </div>
+      <div class="card feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+        </div>
+        <h3>Защита от ошибок ГИМС</h3>
+        <p>В базе МЧС есть 62 спорных вопроса, где официальный ответ отличается от правильного. Предупреждаем, чтобы ты сдал.</p>
+      </div>
+      <div class="card feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h10"/></svg>
+        </div>
+        <h3>Разбор каждого вопроса</h3>
+        <p>После ответа — понятное объяснение с картинкой. Разобраться, а не зубрить.</p>
+      </div>
+      <div class="card feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Справочник нормативки</h3>
+        <p>КВВТ, МППСС-72, правила шлюзования, штрафы по КоАП, центры ГИМС. Всё оффлайн, никаких поисков в интернете.</p>
+      </div>
+      <div class="card feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0zM3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+        </div>
+        <h3>Полный офлайн</h3>
+        <p>Вся база в приложении. Готовься в метро, на даче, в самолёте — интернет не нужен.</p>
+      </div>
+      <div class="card feature">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6z"/></svg>
+        </div>
+        <h3>Без рекламы и подписок</h3>
+        <p>Бесплатно навсегда. Никаких pop-up'ов, никакого «купи pro», никаких лимитов на 40 вопросов.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories" class="section">
+  <div class="container">
+    <div class="section__head">
+      <div class="eyebrow">Все категории ГИМС 2026</div>
+      <h2>Тип судна × район плавания</h2>
+      <p class="section__lead">Отметишь в онбординге какое судно и где водишь — приложение покажет только нужные вопросы.</p>
+    </div>
+
+    <h3 class="cat-group">Что водишь</h3>
+    <div class="grid grid--4 cats">
+      <div class="cat"><span class="cat__code">ММС</span><span class="cat__name">Моторная лодка, катер</span></div>
+      <div class="cat"><span class="cat__code">ГД</span><span class="cat__name">Гидроцикл</span></div>
+      <div class="cat"><span class="cat__code">МПС</span><span class="cat__name">Парусная яхта</span></div>
+      <div class="cat"><span class="cat__code">С</span><span class="cat__name">Особой конструкции</span></div>
+    </div>
+
+    <h3 class="cat-group">Где плаваешь</h3>
+    <div class="grid grid--4 cats">
+      <div class="cat cat--alt"><span class="cat__code">ВВ</span><span class="cat__name">Озёра, пруды, реки</span></div>
+      <div class="cat cat--alt"><span class="cat__code">ВВП</span><span class="cat__name">Судоходные реки, каналы</span></div>
+      <div class="cat cat--alt"><span class="cat__code">МП</span><span class="cat__name">Прибрежные морские</span></div>
+      <div class="cat cat--alt"><span class="cat__code">МТ</span><span class="cat__name">Территориальные моря</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section section--alt stats-section">
+  <div class="container">
+    <div class="grid grid--4 stats">
+      <div class="stat"><div class="stat__num">3119</div><div class="stat__label">вопросов в базе 2026</div></div>
+      <div class="stat"><div class="stat__num">8</div><div class="stat__label">категорий ГИМС</div></div>
+      <div class="stat"><div class="stat__num">15</div><div class="stat__label">минут в день по плану</div></div>
+      <div class="stat"><div class="stat__num">0</div><div class="stat__label">рекламы и подписок</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="section">
+  <div class="container container--narrow">
+    <div class="section__head">
+      <div class="eyebrow">Частые вопросы</div>
+      <h2>Коротко о главном</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>У меня до экзамена всего 2 недели — успею?</summary>
+        <p>Да. Приложение построит интенсивный план: примерно 100 вопросов в день по 45 минут. Главное — заниматься каждый день. Если пропустишь, план пересчитается и покажет сколько нужно нагнать. За 3 дня до экзамена автоматически включится финишная прямая — только повторение самого важного, без новых тем.</p>
+      </details>
+      <details>
+        <summary>А если я совсем не знаю ничего про ПДД на воде?</summary>
+        <p>Это нормально — большинство пользователей приходят с нуля. Приложение начинает с самых простых тем и постепенно наращивает сложность. В разделе «Библиотека» есть справочник с КВВТ, МППСС-72 и правилами плавания — если хочется разобраться глубже, а не просто зазубрить.</p>
+      </details>
+      <details>
+        <summary>Правда, что в официальной базе ГИМС есть ошибки?</summary>
+        <p>Да. В базе МЧС есть 62 задокументированных спорных вопроса, где официальный ответ отличается от фактически правильного. Приложение предупреждает о них оранжевым бейджем и учит отвечать «как принято в системе» — чтобы ты сдал экзамен, а не провалился из-за спора с инспектором.</p>
+      </details>
+      <details>
+        <summary>Почему симулятор даёт 25, 30 или 35 вопросов?</summary>
+        <p>Потому что это по Приказу МЧС №885: 1–2 категории — 25 вопросов (1 ошибка), 3 категории — 30 (2 ошибки), 4+ — 35 (3 ошибки). Приложение автоматически пересчитывает билет под твой выбор категорий и показывает точно как в настоящем экзамене.</p>
+      </details>
+      <details>
+        <summary>Нужен ли интернет?</summary>
+        <p>Нет. Все 3119 вопросов, картинки, справочник нормативки и центры ГИМС — в приложении. Можно готовиться в дороге, на даче, в самолёте или прямо на лодке без связи.</p>
+      </details>
+      <details>
+        <summary>Бесплатно или придётся платить?</summary>
+        <p>Бесплатно навсегда. Без рекламы, без подписок, без встроенных покупок, без лимитов на N вопросов в день. Никакой монетизации — только подготовка.</p>
+      </details>
+      <details>
+        <summary>Актуальна ли база вопросов?</summary>
+        <p>Да, база вопросов ГИМС МЧС 2026 года, актуальна на текущий сезон навигации. Соответствует Приказу МЧС №885 от 23.08.2023 и формату экзамена с 01.03.2022 (автоматизированная сдача).</p>
+      </details>
+      <details>
+        <summary>Можно пройти заново если провалил экзамен?</summary>
+        <p>Конечно. Приложение запомнит на каких вопросах ты ошибся, и план при следующем запуске сфокусирует на слабых темах. Можешь задать новую дату пересдачи — всё пересчитается.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <div class="brand">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M16 4 L18 14 L28 16 L18 18 L16 28 L14 18 L4 16 L14 14 Z" fill="currentColor"/>
+        </svg>
+        <span>ГИМС 2026</span>
+      </div>
+      <p class="footer__tag">Личный план сдачи ГИМС МЧС с первого раза. Независимый проект, не аффилирован с МЧС России.</p>
+    </div>
+    <div class="footer__col">
+      <h4>Приложение</h4>
+      <a href="#">App Store</a>
+      <a href="#how">Как работает план</a>
+      <a href="#features">Фичи</a>
+      <a href="#categories">Категории</a>
+    </div>
+    <div class="footer__col">
+      <h4>Документы</h4>
+      <a href="privacy.html">Политика конфиденциальности</a>
+      <a href="support.html">Поддержка</a>
+    </div>
+    <div class="footer__col">
+      <h4>Контакты</h4>
+      <a href="mailto:hello@dinershtein.com">hello@dinershtein.com</a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© 2026 ГИМС 2026</span>
+    <span>Чтобы ты сдал с первого раза и вышел на воду</span>
+  </div>
+</footer>
+
+</body>
+</html>
